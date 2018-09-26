@@ -7,30 +7,30 @@ class CampaignIndex extends Component{
   //keyword means funcion is called outside of instance
   static async getInitialProps(){
       const campaigns = await factory.methods.getDeployedCampaigns().call()
-      return {campaigns} //ES2016
+      return {campaigns}
   }
   
-  renderCampaigns(){
+  renderCampaigns = () =>{
     const items = this.props.campaigns.map(address => {
       return{
         header: address,
         description: <a>View Campaign</a>,
-        fluid: true, //Lets card stretch sematnticui-prop         
+        fluid: true,
       }
     })
     return <Card.Group items={items} />
   }
-  
+  //this yo ho no
   render(){
     return(
     <Layout>
       <div>      
       <h3>Open Campaigns</h3>
       <Button
-        floated="right" //Adds css style float:right
+        floated="right" 
         content="Create Campaign"
         icon="add circle"
-        primary //This equals primary={true} REACT shorthand
+        primary
       />
       {this.renderCampaigns()}      
       </div>
